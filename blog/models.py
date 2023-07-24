@@ -1,7 +1,13 @@
 from django.db import models
 
 class Category(models.Model):
+    class Meta:
+        verbose_name_plural = 'Categories'
+        
     name = models.CharField(max_length=20)
+
+    def __str__(self):
+        return self.name
 
 class Comment(models.Model):
     author = models.CharField(max_length=60)
@@ -17,6 +23,7 @@ class Comment(models.Model):
     posts = models.ForeignKey('Post', on_delete=models.CASCADE)
 
 class Post(models.Model):
+    author = models.CharField(max_length=255, default='')
     title = models.CharField(max_length=255)
     body = models.TextField()
 
@@ -31,3 +38,5 @@ class Post(models.Model):
     # 'related_name' allows us to get a list of posts with a particular category
     categories = models.ManyToManyField('Category', related_name='posts')
 
+    def __str__(self):
+        return self.title
