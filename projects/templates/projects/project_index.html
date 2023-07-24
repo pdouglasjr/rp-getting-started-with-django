@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block web-page-title %}Projects{% endblock web-page-title %}
+
+
+{% block django-page-title %}<h1 class="pb-2">Projects</h1>{% endblock django-page-title %}
+
+
+{% block content %}
+<div class="row">
+    {% for project in projects %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img src="{% static project.image %}" alt="" class="card-img-top" />
+            <div class="card-body">
+                <h5 class="card-title">{{ project.title }}</h5>
+                <p class="card-text">{{ project.description }}</p>
+                <a href="{% url 'project_detail' project.pk %}" class="btn btn-primary">Read More</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock content %}
