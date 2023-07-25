@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+{% block web-page-title %}Blog{% endblock web-page-title %}
+
+
+{% block django-page-title %}<h2>Blog</h2>{% endblock django-page-title %}
+
+
+{% block content %}
+
+{% for post in posts %}
+<h5 class="pt-3">{{ post.title }}</h5>
+{% endfor %}
+
+{% endblock content %}

@@ -60,6 +60,7 @@ TEMPLATES = [
             'portfolio/templates',
             f'{BASE_DIR}/hello_world/templates',
             f'{BASE_DIR}/projects/templates',
+            f'{BASE_DIR}/blog/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
